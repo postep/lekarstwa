@@ -51,7 +51,7 @@ function round2(v){
 }
 function updateMeds(v){
     const result = document.querySelector('div#infwaga');
-  result.textContent = `Podana waga to: ${event.target.value}`;
+  result.textContent = `Podana waga to: ${v}`;
 
   const amotaksinfo = document.querySelector('div#amotaksinfo');
   amotaksinfo.textContent = `Min: ${round2(v*50/3.0)}, maks: ${round2(v*90/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/100.0)} maks ${round2(v*90/3.0/100.0)} ml na dawkę.`;
