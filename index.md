@@ -71,7 +71,7 @@ function updateMeds(v){
 }
 
 window.addEventListener('load', (event) => {
-  updateMeds(document.querySelector('input#waga.form-range').value)
+  updateMeds(document.querySelector('input#waga.form-range').value);
 });
 
 const selectElement = document.querySelector('input#waga.form-range');
