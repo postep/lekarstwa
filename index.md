@@ -70,6 +70,9 @@ function updateMeds(v){
   butriminfo.textContent = `Wychodzi: ${round2(v*(36)/2.0)} mg na dawkę, czyli ${round2(v*36.0/2.0/48.0)} ml na dawkę.`;
 }
 
+window.addEventListener('load', (event) => {
+  updateMeds(document.querySelector('input#waga.form-range').value)
+});
 
 const selectElement = document.querySelector('input#waga.form-range');
 selectElement.addEventListener('change', (event) => {
