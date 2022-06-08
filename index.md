@@ -1,37 +1,80 @@
-## Welcome to GitHub Pages
+# Lekarstwa
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-You can use the [editor on GitHub](https://github.com/postep/lekarstwa/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-### Markdown
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Waga
 
-```markdown
-Syntax highlighted code block
+<label for="waga" class="form-label">Waga</label>
+<input type="range" class="form-range" min="3" max="40" id="waga">
 
-# Header 1
-## Header 2
-### Header 3
+<div id="infwaga">Waga to: </div>
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+## Amotaks
 
-**Bold** and _Italic_ and `Code` text
+<div id="amotaks">Dawka dobowa od 50 do 90 mg/kg. Podajemy w 3 dawkach. 100 mg jest w 1 ml. </div>
+<div id="amotaksinfo"> </div>
 
-[Link](url) and ![Image](src)
-```
+## Ospen
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+<div id="ospen">Dawka dobowa od 50 tys do 100 tys/kg. Podajemy w 3 dawkach. 750 tys jest w 5 ml, czyli 150 tys jest w 1 ml. </div>
+<div id="ospeninfo"> </div>
 
-### Jekyll Themes
+## Klacid
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/postep/lekarstwa/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+<div id="klacid">Dawka dobowa 7.5 mg/kg. Podajemy w 2 dawkach maksymalnie 500 mg x 2 na dobę. Roztwór ma 25 mg w 1 ml lub 50 mg w 1 ml. </div>
+<div id="klacidinfo"> </div>
 
-### Support or Contact
+## Augmentin ES
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<div id="augmentin">Dawka dobowa 90 + 6.4 mg/kg. Podajemy w 2 dawkach. Roztwór ma 128.58 mg w 1 ml. </div>
+<div id="augmentininfo"> </div>
+
+## Butrim
+
+<div id="butrim">Dawka dobowa 36 mg/kg. Podajemy w 2 dawkach. Roztwór ma 48 mg w 1 ml. </div>
+<div id="butriminfo"> </div>
+
+<script>
+
+function round2(v){
+  return Math.round(v*100.0)/100.0;
+}
+function updateMeds(v){
+    const result = document.querySelector('div#infwaga');
+  result.textContent = `Podana waga to: ${event.target.value}`;
+
+  const amotaksinfo = document.querySelector('div#amotaksinfo');
+  amotaksinfo.textContent = `Min: ${round2(v*50/3.0)}, maks: ${round2(v*90/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/100.0)} maks ${round2(v*90/3.0/100.0)} ml na dawkę.`;
+
+  const ospeninfo = document.querySelector('div#ospeninfo');
+  ospeninfo.textContent = `Min: ${round2(v*50/3.0)}, maks: ${round2(v*100/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/150.0)} maks ${round2(v*100/3.0/150.0)} ml na dawkę`;
+
+  klacidmax = Math.min(v*7.5/2.0, 500.0);
+  const klacidinfo = document.querySelector('div#klacidinfo');
+  klacidinfo.textContent = `Wychodzi: ${round2(v*7.5/2.0)}, po uwzględnieniu zasady maks 500 mg x 2 na dobę: ${round2(klacidmax)} mg na dawkę. Dla roztworu 25 mg - 1 ml: ${round2(klacidmax/25.0)} ml na dawkę. Dla roztworu 50 mg - 1 ml: ${round2(klacidmax/50.0)} ml na dawkę.`;
+
+  const augmentininfo = document.querySelector('div#augmentininfo');
+  augmentininfo.textContent = `Wychodzi: ${round2(v*(90+6.4)/2.0)} mg na dawkę, czyli ${round2(v*96.4/2.0/128.58)} ml na dawkę.`;
+
+  const butriminfo = document.querySelector('div#butriminfo');
+  butriminfo.textContent = `Wychodzi: ${round2(v*(36)/2.0)} mg na dawkę, czyli ${round2(v*36.0/2.0/48.0)} ml na dawkę.`;
+}
+
+
+const selectElement = document.querySelector('input#waga.form-range');
+selectElement.addEventListener('change', (event) => {
+  v = event.target.value;
+  updateMeds(v);
+});
+</script>
+
+
