@@ -21,7 +21,7 @@
 
 ## Amotaks
 
-<div id="amotaks">Dawka dobowa od 50 do 90 mg/kg. Podajemy w 3 dawkach. 100 mg jest w 1 ml. </div>
+<div id="amotaks">Dawka dobowa od 50 do 90 mg/kg. Podajemy w 3 lub 2 dawkach. 100 mg jest w 1 ml. </div>
 <div id="amotaksinfo"> </div>
 
 ## Ospen
@@ -56,10 +56,15 @@
 <div id="cetix">Dawka dobowa 8 mg/kg. Podajemy w 2 dawkach maksymalnie 100 mg x 2 na dobę. Roztwór ma 20 mg w 1 ml. </div>
 <div id="cetixinfo"> </div>
 
+## Ceclor
 
-## Furazek
+<div id="ceclor">Dawka dobowa 20 do 40 mg/kg. Podajemy w 2 lub 3 dawkach. Roztwór ma 25 mg w 1 ml lub 50 mg w 1 ml. </div>
+<div id="ceclorinfo"> </div>
 
-<div id="furazek">Dawka dobowa od 5 do 7 mg/kg. Podajemy w 2 dawkach. 10 mg jest w 1 ml. </div>
+
+## Furazydyna
+
+<div id="furazek">Dawka dobowa od 5 do 7 mg/kg. Podajemy w 2 dawkach. 10 mg jest w 1 ml lub 15 mg jest w 1 ml. </div>
 <div id="furazekinfo"> </div>
 
 
@@ -74,7 +79,7 @@ function updateMeds(v){
   result.textContent = `Podana waga to: ${v}`;
 
   const amotaksinfo = document.querySelector('div#amotaksinfo');
-  amotaksinfo.textContent = `Min: ${round2(v*50/3.0)}, maks: ${round2(v*90/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/100.0)} maks ${round2(v*90/3.0/100.0)} ml na dawkę.`;
+  amotaksinfo.textContent = `Min: ${round2(v*50/3.0)}, maks: ${round2(v*90/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/100.0)} maks ${round2(v*90/3.0/100.0)} ml na dawkę. Dla 2 dawek na dobę mamy: Min: ${round2(v*50/2.0)}, maks: ${round2(v*90/2.0)} mg na dawkę czyli min ${round2(v*50/2.0/100.0)} maks ${round2(v*90/2.0/100.0)} ml na dawkę.`;
 
   const ospeninfo = document.querySelector('div#ospeninfo');
   ospeninfo.textContent = `Min: ${round2(v*50/3.0)}, maks: ${round2(v*100/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/150.0)} maks ${round2(v*100/3.0/150.0)} ml na dawkę`;
@@ -97,6 +102,9 @@ function updateMeds(v){
 
   const furazekinfo = document.querySelector('div#furazekinfo');
   furazekinfo.textContent = `Min: ${round2(v*5/2.0)}, maks: ${round2(v*7/2.0)} mg na dawkę czyli min ${round2(v*5/2.0/10.0)} maks ${round2(v*7/2.0/10.0)} ml na dawkę.`;
+
+  const ceclorinfo = document.querySelector('div#ceclorinfo');
+  ceclorinfo.textContent = `Min: ${round2(v*20.0)}, maks: ${round2(v*40.0)} mg na dobę czyli 2 razy na dobę od ${round2(v*20.0/2)} do ${round2(v*40.0/2)} mg na dawkę lub 3 razy na dobę od ${round2(v*20.0/2)} do ${round2(v*40.0/2)} mg na dawkę. Dla opcji 2 razy na dobę: min ${round2(v*20.0/2/25.0)} maks ${round2(v*40.0/2.0/25.0)} ml na dawkę dla roztworu 25 mg/ml albo min ${round2(v*20.0/2/50.0)} maks ${round2(v*40.0/2.0/50.0)} ml na dawkę dla roztworu 50 mg/ml. Dla opcji 3 razy na dobę: min ${round2(v*20.0/3/25.0)} maks ${round2(v*40.0/3.0/25.0)} ml na dawkę dla roztworu 25 mg/ml albo min ${round2(v*20.0/3/50.0)} maks ${round2(v*40.0/3.0/50.0)} ml na dawkę dla roztworu 50 mg/ml.`;
 
     cetixmax = Math.min(v*8/2.0, 100.0);
   const cetixinfo = document.querySelector('div#cetixinfo');
