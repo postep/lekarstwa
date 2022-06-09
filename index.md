@@ -39,16 +39,36 @@
 <div id="augmentin">Dawka dobowa 90 + 6.4 mg/kg. Podajemy w 2 dawkach. Roztwór ma 128.58 mg w 1 ml. </div>
 <div id="augmentininfo"> </div>
 
-## Butrim
+## Bactrim
 
 <div id="butrim">Dawka dobowa 36 mg/kg. Podajemy w 2 dawkach. Roztwór ma 48 mg w 1 ml. </div>
 <div id="butriminfo"> </div>
+
+
+## Zinnat
+
+<div id="zinnat">Dawka dobowa 15 mg/kg. Podajemy w 2 dawkach maksymalnie 250 mg x 2 na dobę. Roztwór ma 25 mg w 1 ml lub 50 mg w 1 ml. </div>
+<div id="zinnatinfo"> </div>
+
+
+## Cetix
+
+<div id="cetix">Dawka dobowa 8 mg/kg. Podajemy w 2 dawkach maksymalnie 100 mg x 2 na dobę. Roztwór ma 20 mg w 1 ml. </div>
+<div id="cetixinfo"> </div>
+
+
+## Furazek
+
+<div id="furazek">Dawka dobowa od 5 do 7 mg/kg. Podajemy w 2 dawkach. 10 mg jest w 1 ml. </div>
+<div id="furazekinfo"> </div>
+
 
 <script>
 
 function round2(v){
   return Math.round(v*100.0)/100.0;
 }
+
 function updateMeds(v){
     const result = document.querySelector('div#infwaga');
   result.textContent = `Podana waga to: ${v}`;
@@ -68,6 +88,20 @@ function updateMeds(v){
 
   const butriminfo = document.querySelector('div#butriminfo');
   butriminfo.textContent = `Wychodzi: ${round2(v*(36)/2.0)} mg na dawkę, czyli ${round2(v*36.0/2.0/48.0)} ml na dawkę.`;
+
+
+  zinnatmax = Math.min(v*15/2.0, 250.0);
+  const zinnatinfo = document.querySelector('div#zinnatinfo');
+  zinnatinfo.textContent = `Wychodzi: ${round2(v*15/2.0)}, po uwzględnieniu zasady maks 250 mg x 2 na dobę: ${round2(zinnatmax)} mg na dawkę. Dla roztworu 25 mg - 1 ml: ${round2(zinnatmax/25.0)} ml na dawkę. Dla roztworu 50 mg - 1 ml: ${round2(zinnatmax/50.0)} ml na dawkę.`;
+
+
+  const furazekinfo = document.querySelector('div#furazekinfo');
+  furazekinfo.textContent = `Min: ${round2(v*5/2.0)}, maks: ${round2(v*7/2.0)} mg na dawkę czyli min ${round2(v*5/2.0/10.0)} maks ${round2(v*7/2.0/10.0)} ml na dawkę.`;
+
+    cetixmax = Math.min(v*8/2.0, 100.0);
+  const cetixinfo = document.querySelector('div#cetixinfo');
+  cetixinfo.textContent = `Wychodzi: ${round2(v*8/2.0)}, po uwzględnieniu zasady maks 100 mg x 2 na dobę: ${round2(cetixmax)} mg na dawkę, czyli ${round2(cetixmax/20.0)} ml na dawkę.`;
+
 }
 
 window.addEventListener('load', (event) => {
