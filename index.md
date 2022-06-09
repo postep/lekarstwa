@@ -13,7 +13,6 @@
 
 ## Waga
 
-<label for="waga" class="form-label">Waga</label>
 <input type="range" class="form-range" min="3" max="40" id="waga">
 
 <div id="infwaga">Waga to: </div>
