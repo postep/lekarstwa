@@ -101,7 +101,7 @@ function updateMeds(v){
 
 
   const furazekinfo = document.querySelector('div#furazekinfo');
-  furazekinfo.textContent = `Min: ${round2(v*5/2.0)}, maks: ${round2(v*7/2.0)} mg na dawkę czyli min ${round2(v*5/2.0/10.0)} maks ${round2(v*7/2.0/10.0)} ml na dawkę.`;
+  furazekinfo.textContent = `Min: ${round2(v*5/2.0)}, maks: ${round2(v*7/2.0)} mg na dawkę czyli min ${round2(v*5/2.0/10.0)} maks ${round2(v*7/2.0/10.0)} ml na dawkę dla roztworu 10 mg/ml lub min ${round2(v*5/2.0/15.0)} maks ${round2(v*7/2.0/15.0)} ml na dawkę dla roztworu 15 mg/ml.`;
 
   const ceclorinfo = document.querySelector('div#ceclorinfo');
   ceclorinfo.textContent = `Min: ${round2(v*20.0)}, maks: ${round2(v*40.0)} mg na dobę czyli 2 razy na dobę od ${round2(v*20.0/2)} do ${round2(v*40.0/2)} mg na dawkę lub 3 razy na dobę od ${round2(v*20.0/2)} do ${round2(v*40.0/2)} mg na dawkę. Dla opcji 2 razy na dobę: min ${round2(v*20.0/2/25.0)} maks ${round2(v*40.0/2.0/25.0)} ml na dawkę dla roztworu 25 mg/ml albo min ${round2(v*20.0/2/50.0)} maks ${round2(v*40.0/2.0/50.0)} ml na dawkę dla roztworu 50 mg/ml. Dla opcji 3 razy na dobę: min ${round2(v*20.0/3/25.0)} maks ${round2(v*40.0/3.0/25.0)} ml na dawkę dla roztworu 25 mg/ml albo min ${round2(v*20.0/3/50.0)} maks ${round2(v*40.0/3.0/50.0)} ml na dawkę dla roztworu 50 mg/ml.`;
