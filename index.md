@@ -79,7 +79,7 @@ function updateMeds(v){
   result.textContent = `Podana waga to: ${v}`;
 
   const amotaksinfo = document.querySelector('div#amotaksinfo');
-  amotaksinfo.textContent = `Min: ${round2(v*50/3.0)}, maks: ${round2(v*90/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/100.0)} maks ${round2(v*90/3.0/100.0)} ml na dawkę. Dla 2 dawek na dobę mamy: Min: ${round2(v*50/2.0)}, maks: ${round2(v*90/2.0)} mg na dawkę czyli min ${round2(v*50/2.0/100.0)} maks ${round2(v*90/2.0/100.0)} ml na dawkę.`;
+  amotaksinfo.textContent = `Dla 3 dawek na dobę mamy min: ${round2(v*50/3.0)}, maks: ${round2(v*90/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/100.0)} maks ${round2(v*90/3.0/100.0)} ml na dawkę. Dla 2 dawek na dobę mamy: Min: ${round2(v*50/2.0)}, maks: ${round2(v*90/2.0)} mg na dawkę czyli min ${round2(v*50/2.0/100.0)} maks ${round2(v*90/2.0/100.0)} ml na dawkę.`;
 
   const ospeninfo = document.querySelector('div#ospeninfo');
   ospeninfo.textContent = `Min: ${round2(v*50/3.0)}, maks: ${round2(v*100/3.0)} mg na dawkę czyli min ${round2(v*50/3.0/150.0)} maks ${round2(v*100/3.0/150.0)} ml na dawkę`;
